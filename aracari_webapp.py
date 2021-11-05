@@ -122,8 +122,7 @@ def TumorGrowth() :
             datalist.append(dataObj)
 
             st.write(datalist[i].dataframe)
-            file_path = os.path.join(save_dir, namelist[i] + '_' + timepoint_input + '_raw_data.csv')
-            raw_csv = Path(file_path)
+            raw_csv = os.path.join(save_dir, namelist[i] + '_' + timepoint_input + '_raw_data.csv')
             saved = st.button('Save ' + namelist[i] + '_' + timepoint_input + '_raw_data.csv file', key= savefile_key + str(i))
             if saved:
                 datalist[i].dataframe.to_csv(raw_csv)
