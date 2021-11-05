@@ -120,12 +120,12 @@ def TumorGrowth() :
             dataObj = DataGroup(namelist[i], timepoint_input, condition_dataframe)
             datalist.append(dataObj)
 
-        st.write(datalist[i].dataframe)
-        raw_csv = os.path.join(save_dir, namelist[i] + '_' + timepoint_input + '_raw_data.csv')
-        saved = st.button('Save ' + namelist[i] + '_' + timepoint_input + '_raw_data.csv file', key= savefile_key + str(i))
-        if saved:
-            datalist[i].dataframe.to_csv(raw_csv)
-            st.write('_Files saved_') 
+            st.write(datalist[i].dataframe)
+            raw_csv = os.path.join(save_dir, namelist[i] + '_' + timepoint_input + '_raw_data.csv')
+            saved = st.button('Save ' + namelist[i] + '_' + timepoint_input + '_raw_data.csv file', key= savefile_key + str(i))
+            if saved:
+                datalist[i].dataframe.to_csv(raw_csv)
+                st.write('_Files saved_') 
 
     #Analyze tumor time course data
     def AnalyzeTumorData() :
