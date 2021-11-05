@@ -4,6 +4,7 @@ import numpy as np
 from pandas.core.reshape.concat import concat 
 import streamlit as st 
 import os
+from pathlib import Path
 
 #Data Structures 
 class DataGroup : 
@@ -121,7 +122,8 @@ def TumorGrowth() :
             datalist.append(dataObj)
 
             st.write(datalist[i].dataframe)
-            raw_csv = os.path.join(save_dir, namelist[i] + '_' + timepoint_input + '_raw_data.csv')
+            file_path = os.path.join(save_dir, namelist[i] + '_' + timepoint_input + '_raw_data.csv')
+            raw_csv = Path(file_path)
             saved = st.button('Save ' + namelist[i] + '_' + timepoint_input + '_raw_data.csv file', key= savefile_key + str(i))
             if saved:
                 datalist[i].dataframe.to_csv(raw_csv)
